@@ -1,0 +1,18 @@
+.input-dinamic{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-dinamic > label{
+    font-size: 18px;
+    color: #000000d5;
+}
+
+.input-dinamic > input{
+    height: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 18px;
+}

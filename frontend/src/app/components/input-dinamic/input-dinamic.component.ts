@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-dinamic',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class InputDinamicComponent {
 
+  @Input() label: string = '';
+  @Input() inputType: string = '';
+  @Input() value: any;
+  @Output() onInputChange: EventEmitter<any> = new EventEmitter<any>();
+
+  emitInputChange(value: any) {
+    this.onInputChange.emit(value);
+  }
 }
