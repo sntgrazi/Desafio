@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #001F3F; 
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .profile-picture {
+    width: 40px; 
+    height: 40px;
+    background-color: #fff; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+  }
+  
+  .welcome {
+    padding: 0px 10px;
+    font-size: 16px; 
+    margin-left: auto;
+  }
+
+  .logout-button {
+    padding: 5px 10px;
+    background-color: #ddd; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333; 
+  }

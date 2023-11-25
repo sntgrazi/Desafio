@@ -1,0 +1,9 @@
+<div *ngIf="visivel" class="overlay"></div>
+<div *ngIf="visivel" class="off-canvas" [@fadeInOut]>
+
+  <div class="content">
+    <!-- Conteúdo do off-canvas aqui -->
+    <p>Histórico</p>
+    <button (click)="close()">Fechar Off Canvas</button>
+  </div>
+</div>
