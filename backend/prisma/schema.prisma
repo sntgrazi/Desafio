@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  usuario String 
+  senha String
+   historicos Historico[]
+
+  @@map("users")
+}
+
+
+
+model Historico{
+  id Int @id @default(autoincrement())
+  userId  Int
+  cep String
+  raioKm Int
+  data DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  @@map("historico")
+}
+
+model Cep {
+  id Int @id @default(autoincrement())
+  cep String
+  km Int
+  @@map("cep")
+}

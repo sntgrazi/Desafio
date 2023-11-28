@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de CEPs Próximos</title>
+</head>
+<body>
+  <h1>Consulta de CEPs Próximos</h1>
+  
+  <label for="cepInput">CEP Base:</label>
+  <input type="text" id="cepInput" placeholder="Digite o CEP base">
+  
+  <label for="raioInput">Raio (em km):</label>
+  <input type="number" id="raioInput" placeholder="Digite o raio em km">
+  
+  <button onclick="buscarCepsProximos()">Buscar CEPs Próximos</button>
+  
+  <h2>CEPs Próximos:</h2>
+  <ul id="cepsList"></ul>
+
+  <script>
+    async function buscarCepsProximos() {
+      const cepBase = document.getElementById('cepInput').value;
+      const raio = document.getElementById('raioInput').value;
+
+      if (!cepBase || !raio) {
+        alert('Por favor, preencha o CEP base e o raio.');
+        return;
+      }
+
+      const apiUrl = `https://www.cepaberto.com/api/v3/cep?cep=${cepBase}&raio=${raio}`;
+
+      try {
+        const response = await fetch(apiUrl, {
+          headers: {
+            'Authorization': 'Token token=802a95c8fbf931b1559e1a465a6755d1' // Substitua "{{SUA_CHAVE_DE_API}}" pela sua chave de API do CepAberto
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao buscar CEPs próximos.');
+        }
+
+        const data = await response.json();
+        exibirCeps(data.ceps);
+
+      } catch (error) {
+        console.error('Erro:', error.message);
+      }
+    }
+
+    function exibirCeps(ceps) {
+      const cepsList = document.getElementById('cepsList');
+      cepsList.innerHTML = '';
+
+      if (ceps.length === 0) {
+        cepsList.innerHTML = '<p>Nenhum CEP encontrado no raio especificado.</p>';
+        return;
+      }
+
+      ceps.forEach(cep => {
+        const listItem = document.createElement('li');
+        listItem.textContent = cep.cep;
+        cepsList.appendChild(listItem);
+      });
+    }
+  </script>
+</body>
+</html>
