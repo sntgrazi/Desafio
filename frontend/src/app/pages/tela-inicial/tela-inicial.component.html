@@ -1,1 +1,54 @@
-<p>tela-inicial works!</p>
+<div class="tela inicial">
+    <div class="nav-inicial">
+        <app-navbar [user]="nomeUser"></app-navbar>
+    </div>
+
+    <div class="btn-historico">
+        <button (click)="abrirOffCanvas()"><i class="fa-solid fa-clock-rotate-left"></i> Histórico</button>
+    </div>
+
+    <app-off-canvas [visivel]="visivel" [historico]="historico" (closeOffCanvas)="fecharOffCanvas()"></app-off-canvas>
+
+    <div class="cards">
+
+        <div class="card-busca">
+            <div class="titulo-busca">
+                <span>Busca de CEP </span>
+            </div>
+            <div class="form-busca">
+                <div class="inputForm">
+                    <app-input-dinamic label="Cep" inputType="text" [(value)]="cepBase"></app-input-dinamic>
+                </div>
+                <div class="inputForm">
+                    <app-input-dinamic label="Raio de km" inputType="text" [(value)]="km"></app-input-dinamic>
+                </div>
+            </div>
+            <div class="btn-busca">
+                <button (click)="realizarPesquisa()">Buscar</button>
+            </div>
+        </div>
+
+        <div class="card-resultado">
+            <div class="titulo-resultado">
+                <span>Resultados</span>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CEP</th>
+                            <th>KM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cep of ceps">
+                            <td>{{ cep.cep }} </td>
+                            <td>{{ cep.km }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

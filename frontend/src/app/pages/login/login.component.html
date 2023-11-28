@@ -1,28 +1,50 @@
 <div class="container">
 
-    <div class="form-login">
+   
+    <div class="form-login" [@fadeInOut]  *ngIf="!cadastroAtivo">
         <div class="titulo-form">
             <span>Login</span>
         </div>
         <div class="form">
-            <div class="input-group">
-                <app-input-dinamic label="Usuário" inputType="text" value="" ></app-input-dinamic>
+            <div class="inputForm">
+                <app-input-dinamic label="Usuário" inputType="text"  [(value)]="usuario"></app-input-dinamic>
             </div>
-            <div class="input-group">
-                <app-input-dinamic label="Senha" inputType="text" value="" ></app-input-dinamic>
+            <div class="inputForm">
+                <app-input-dinamic label="Senha" inputType="password"  [(value)]="senha"></app-input-dinamic>
                 <a href="#">Esqueceu sua senha?</a>
             </div>
         </div>
         <div class="btn-send">
-            <button>Acessar</button>
-            <a href="#">Não tem cadastro ainda? Cadastre-se</a>
+            <button (click)="realizarLogin()">Acessar</button>
+            <a href="#" (click)="alternarFormulario()">Não tem cadastro ainda? Cadastre-se</a>
         </div>
     </div>
+
+    <div class="form-cadastro" [@fadeInOut] *ngIf="cadastroAtivo">
+        <div class="titulo-form">
+            <span>Cadastro</span>
+        </div>
+        <div class="form">
+            <div class="inputForm">
+                <app-input-dinamic label="Usuário" inputType="text"  [(value)]="userCadastro" ></app-input-dinamic>
+            </div>
+            <div class="inputForm">
+                <app-input-dinamic label="Senha" inputType="password"  [(value)]="senhaCadastro"></app-input-dinamic>
+            </div>
+            <div class="inputForm">
+                <app-input-dinamic label="Confirma a senha" inputType="password" [(value)]="confirmeSenhaCadastro"></app-input-dinamic>
+            </div>
+        </div>
+        <div class="btn-send">
+            <button (click)="realizarCadastro()">Cadastrar</button>
+            <a href="#" (click)="alternarFormulario()">Já tem conta? Entre aqui</a>
+        </div>
+    </div> 
 
     <div class="conteudo">
         <div class="titulo">
             <h1>CEPConnect</h1>
-            <span>Sua solução ágil para 
+            <span>Sua solução ágil para
                 localização de CEPs</span>
         </div>
         <div class="svg-gif">

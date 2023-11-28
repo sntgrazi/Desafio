@@ -1,8 +1,7 @@
 <div class="navbar">
     <div class="welcome">
-      <span>Bem-vindo,</span> <br>
-      <span>Nome da Pessoa</span>
+      <span>Bem-vindo(a) {{ user }}</span> 
+      
     </div>
-    <div class="profile-picture"></div>
-    <button class="logout-button">Sair</button>
-  </div>
+    <button (click)="logout()" class="logout-button">Sair</button>
+</div>

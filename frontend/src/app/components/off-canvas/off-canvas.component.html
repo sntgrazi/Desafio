@@ -2,8 +2,14 @@
 <div *ngIf="visivel" class="off-canvas" [@fadeInOut]>
 
   <div class="content">
-    <!-- Conteúdo do off-canvas aqui -->
-    <p>Histórico</p>
-    <button (click)="close()">Fechar Off Canvas</button>
+    <div class="conteudo-topo">
+      <p>Histórico</p>
+    <button (click)="close()"><i class="fa-solid fa-x"></i></button>
+    </div>
+    <div class="conteudo-historico" *ngFor="let item of historico">
+      <span>Data: {{ formatarData(item.data) | date:'MM/dd/yyyy HH:mm:ss' }}</span>
+      <span>Cep: {{ item.cep }}</span>
+      <span>Km: {{ item.raioKm }}</span>
+    </div>
   </div>
 </div>

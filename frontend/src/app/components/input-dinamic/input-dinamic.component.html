@@ -1,4 +1,4 @@
 <div class="input-dinamic">
     <label>{{ label }}</label>
-    <input [type]="inputType" [value]="value"  />
+    <input [type]="inputType" [(ngModel)]="value" [name]="name" (input)="onInputChange()" />
 </div>
