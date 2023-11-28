@@ -1,5 +1,7 @@
 ### Desafio do Sistema de Consulta de CEPs
 
+Para utilizar o sistema criado após fazer o clone dos arquivos como o sistema depende de uma base de dados própria que são as do cep. Lembre de carregar o migrate do create_table_cep para poder fazer a pesquisa do cep posteriormente.
+
 #### Objetivo:
 Desenvolver um sistema multiplataforma que permita aos usuários logados realizar consultas de CEPs baseadas em um raio de distância específico e exibir os resultados em uma tabela. Além disso, é necessário ter uma página de histórico para visualização das consultas realizadas.
 
