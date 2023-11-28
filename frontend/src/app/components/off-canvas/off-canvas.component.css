@@ -58,3 +58,8 @@
   padding: 10px;
 }
 
+.messageNotFound{
+  margin-top: 30px;
+  text-align: center;
+  color: rgb(94, 92, 92);
+}

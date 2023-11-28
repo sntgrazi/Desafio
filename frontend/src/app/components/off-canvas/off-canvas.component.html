@@ -6,10 +6,18 @@
       <p>Histórico</p>
     <button (click)="close()"><i class="fa-solid fa-x"></i></button>
     </div>
-    <div class="conteudo-historico" *ngFor="let item of historico">
-      <span>Data: {{ formatarData(item.data) | date:'MM/dd/yyyy HH:mm:ss' }}</span>
-      <span>Cep: {{ item.cep }}</span>
-      <span>Km: {{ item.raioKm }}</span>
+    <div *ngIf="historico.length > 0; else noDataMessage">
+      <div class="conteudo-historico" *ngFor="let item of historico">
+        <span>Data: {{ formatarData(item.data) | date:'MM/dd/yyyy HH:mm:ss' }}</span>
+        <span>Cep: {{ item.cep }}</span>
+        <span>Km: {{ item.raioKm }}</span>
+      </div>
     </div>
+    
+    <ng-template #noDataMessage>
+      <div class="messageNotFound">
+        <p>Nada para exibir</p>
+      </div>
+    </ng-template>
   </div>
 </div>

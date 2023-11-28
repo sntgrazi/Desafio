@@ -116,3 +116,29 @@
 .svg-gif img{
     width: 100%;
 }
+
+@media only screen and (max-width: 968px) {
+  .container {
+    flex-direction: column;
+    width: 60%;
+  }
+
+  .form-login,
+  .form-cadastro,
+  .conteudo {
+    width: 100%;
+    border-radius: 10px; /* Add border-radius for all components */
+  }
+
+  .form-cadastro .btn-send{
+    margin-top: 15px;
+  }
+
+
+
+  .conteudo .svg-gif img{
+    margin-left: 30px;
+    width: 80%;
+  }
+}
+
